@@ -41,7 +41,6 @@ def dirdialog_clicked():
 # ------------------------------------------------------------
 # GUI設計
 # ------------------------------------------------------------
-
 # 画面全体
 main_win = tk.Tk()
 main_win.title("Blog to Image")
@@ -51,6 +50,7 @@ main_win.geometry("600x150")
 frame = ttk.Frame(main_win)
 frame.grid(column=0, row=0, sticky=tk.NSEW, padx=5, pady=10)
 
+# ------------------------------------------------------------
 # メンバー名ラベル
 member_name_label = ttk.Label(frame, text="メンバー名")
 
@@ -63,7 +63,6 @@ member_name_combobox = ttk.Combobox(
 member_name_combobox.set(member_name[0])
 
 # ------------------------------------------------------------
-
 # 保存先ラベル
 save_path_label = ttk.Label(frame, text="保存先")
 
@@ -75,12 +74,10 @@ save_path_input = ttk.Entry(frame, textvariable=save_path, width=30, state="read
 browse_folder_button = ttk.Button(frame, text="参照", command=dirdialog_clicked)
 
 # ------------------------------------------------------------
-
 # 実行ボタン
 app_btn = ttk.Button(frame, text="保存開始", width=12, command=app)
 
 # ------------------------------------------------------------
-
 # ウィジェットの配置
 member_name_label.grid(column=0, row=0, pady=10)
 member_name_combobox.grid(column=1, row=0, sticky=tk.EW, padx=5)
