@@ -7,8 +7,8 @@ from tkinter import ttk
 from tkinter import messagebox
 from tkinter import filedialog
 
+from settings import member_num
 from screenshot import main
-from screenshot import member_num
 
 
 def app():
