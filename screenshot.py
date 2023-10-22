@@ -16,7 +16,7 @@ from settings import member_num
 BASE_URL = "https://www.hinatazaka46.com"
 
 
-def main(member_name, selected_save_dir):
+def main(member_name, selected_save_path):
     BLOG_LIST_URL = (
         "https://www.hinatazaka46.com/s/official/diary/member/list?ct="
         + member_num[member_name]
@@ -25,7 +25,7 @@ def main(member_name, selected_save_dir):
     i = 0
     while next_exist:
         blog_article_info = get_blog_article_info(blog_url)
-        screenshot_path = make_screenshot_path(blog_article_info, selected_save_dir)
+        screenshot_path = make_screenshot_path(blog_article_info, selected_save_path)
         # スクショ撮影＆保存（既に保存済みのブログがあれば処理をスルー）
         if not os.path.isfile(screenshot_path):
             screenshot_file = get_screenshot_file(blog_url)
@@ -54,7 +54,7 @@ def get_blog_article_info(blog_url):
     return blog_article_info
 
 
-def make_screenshot_path(blog_article_info, selected_save_dir):
+def make_screenshot_path(blog_article_info, selected_save_path):
     member_name = blog_article_info.find(
         "div", attrs={"class": "c-blog-article__name"}
     ).text
@@ -71,7 +71,7 @@ def make_screenshot_path(blog_article_info, selected_save_dir):
     blog_title = blog_title.replace(" ", "").replace("\n", "").replace("/", "／")
 
     screenshot_path = os.path.join(
-        selected_save_dir, member_name, blog_date + "〈" + blog_title + "〉" + ".png"
+        selected_save_path, member_name, blog_date + "〈" + blog_title + "〉" + ".png"
     )
 
     return screenshot_path
