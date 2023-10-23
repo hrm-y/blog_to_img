@@ -96,12 +96,7 @@ def get_screenshot_file(blog_url):
     driver = webdriver.Chrome(
         service=Service(executable_path=driver_path), options=chrome_options
     )
-    """
-    driver = webdriver.Chrome(
-        executable_path="/Users/hiromuyamauchi/blog_to_image/chromedriver",
-        options=chrome_options,
-    )
-    """
+
     driver.maximize_window()
     driver.get(blog_url)
     page_width = 3000
